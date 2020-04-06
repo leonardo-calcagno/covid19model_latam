@@ -7,18 +7,27 @@ Germany,2020-03-14,2020-03-16,2020-03-22,2020-03-13,2020-03-22,2020-03-12,2020-0
 Italy,2020-03-05,2020-03-09,2020-03-09,2020-03-09,2020-03-11,2020-03-09,2020-03-09,,Harrison,,,,,,,,,,,,2020-03-14
 Norway,2020-03-13,2020-03-13,2020-03-12,2020-03-13,2020-03-24,2020-03-16,2020-03-15,,Seth + Helen,,,tmellan,,,,,,,,,2020-03-13
 Spain,2020-03-13,2020-03-12,2020-03-14,2020-03-13,2020-03-14,2020-03-09,2020-03-17,,Ettie + Pablo,,,MonkeyfaceMx,,,,,,,,,2020-03-18
-Sweden,2020-3-18,2020-03-19,2020-03-12,2020-03-12,2090-03-21,2020-03-16,2020-03-10,,Michaela + Isak,,,isakfalk,,,,,,,,,2020-03-14
+Sweden,2020-03-18,2020-03-19,2020-03-12,2020-03-12,2090-03-21,2020-03-16,2020-03-10,,Michaela + Isak,,,isakfalk,,,,,,,,,2020-03-14
 Switzerland,2020-03-14,2020-03-18,2020-03-13,2020-03-16,2020-03-20,2020-03-16,2020-03-02,,Harrison,,,sarahfilippi,,,,,,,,,2020-03-14
 United_Kingdom,2020-03-21,2020-03-24,2020-03-24,2020-03-13,2020-03-24,2020-03-16,2020-03-12,,Seth,,,flaxter,,,,,,,,,2020-03-16
+Argentina,2020-03-16,2020-03-16,2020-03-20,2020-03-16,2020-03-20,2020-03-16,2020-03-13,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
+Brazil,2020-03-26,2020-03-19,2020-03-23,2020-03-26,2020-03-25,2020-03-23,2020-03-26,,Leonardo,,"Currently a feud between federal government and most states over quarantine (most states implemented it, Bolsonaro vocal against it). Considered social distancing encouraged since 03-23-2020, and full quarantine since 03-26-2020. The most affected state, Sao Paulo, started its quarantine 03-24-2020, the state of Rio de Janeiro started its lock-down 03-21-2020, and by 03-25-2020 most capitals of Brazil's states were in quarantine. ",Leonardo-calcagno,,,,,,,,,
+Chile,2020-03-16,2020-03-16,2020-03-16,2020-03-16,2020-12-31,2020-03-22,2020-03-16,,Leonardo,,"Nation-wide 22h-5h curfew since sunday 03-22, but no national lock-down",Leonardo-calcagno,,,,,,,,,
+Colombia,2020-03-16,2020-03-16,2020-03-13,2020-03-13,2020-03-24,2020-03-24,2020-03-24,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
+Dominican_Republic,2020-03-16,2020-03-19,2020-03-16,2020-03-16,2020-12-31,2020-03-20,2020-03-20,,Leonardo,,"Nation-wide curfew since 03-20, extended curfew since 03-27, but no national lock-down",Leonardo-calcagno,,,,,,,,,
+Ecuador,2020-03-13,2020-03-19,2020-03-17,2020-03-17,2020-03-25,2020-03-17,2020-03-17,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
+Mexico,2020-03-23,2020-03-31,2020-03-23,2020-03-23,2020-12-31,2020-03-23,2020-03-31,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
+Panama,2020-03-12,2020-03-23,2020-03-19,2020-03-19,2020-03-25,2020-03-19,2020-03-25,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
+Peru,2020-03-11,2020-03-16,2020-03-13,2020-03-13,2020-03-16,2020-03-16,2020-03-16,,Leonardo,,,Leonardo-calcagno,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,2020-03-18
 Partial lockdowns,,,,,,,,,,,,,,,,,,,,,2020-03-30
 Country,Type of intervention,,Date,Effected population,,,,,,,,,,,,,,,,,2020-03-12
-Italy,Lockdown of Lombardy region and 14 other provinces,,2020-03-08,26%,,,,,,,,,,,,,,,,,2020-03-13
+Italy,Lockdown of Lombardy region and 14 other provinces,,2020-03-08,"26,00%",,,,,,,,,,,,,,,,,2020-03-13
 Italy,self-isolate if ill and quarantine if tested positive,,2020-03-08,extended to whole country on 9/03,,,,,,,,,,,,,,,,,2020-03-13
 Italy,Extended lockdown (non-essential shops + restaurants + caffee still open),,2020-03-09,,,,,,,,,,,,,,,,,,2020-03-12
 Italy,Extended lockdown + closure of non-essential shops,,2020-03-11,,,,,,,,,,,,,,,,,,2020-03-14
 Italy,Extended lockdown + further closure of non-essential businesses and activities,,2020-03-22,,,,,,,,,,,,,,,,,,2020-03-16
-Spain,"Bans events > 1000 people in Basque Country and La Rioja, Madrid",,2020-03-10,,,,,,,,,,,,,,,,,,17/03/2020
+Spain,"Bans events > 1000 people in Basque Country and La Rioja, Madrid",,2020-03-10,,,,,,,,,,,,,,,,,,17/03/20
 Spain,"La Rioja, Haro was put on lockdown",,2020-03-07,,,1225802,,,,,,,,,,,,,,,2020-03-14
 Spain,Schools closed in Basque region and Madrid,,2020-03-09,,,,,,,,,,,,,,,,,,2020-03-14
 Denmark,Bans events >100 people,,2020-03-12,,,,,,,,,,,,,,,,,,2020-03-17
@@ -42,21 +51,60 @@ France,Bans events >100 people,,2020-03-13,,,,,,,,,,,,,,,,,,2020-03-12
 Belgium,Bans gathering >2 persons (except family),,2020-03-18,,,,,,,,,,,,,,,,,,2020-03-13
 Belgium,School closed,,2020-03-16,,,,,,,,,,,,,,,,,,2020-03-12
 Belgium,"Non essential shops closed (exceptions: food shops, pharmacies, bookstores, gaz stations, hairdressers)",,2020-03-18,,,,,,,,,,,,,,,,,,2020-03-12
-,,,,,,,,,,,,,,,,,,,,,21/03/2090
-Switzerland,Kissing and shaking hands advised against,,2020-03-01,,,,,,,,,,,,,,,,,,12/03/2020
-Country,Population 0-9,,Population 10-19,Population 30-39,Population 40-49,Population 50-59,Population 60-69,,Population 70-79,Population 80+,Total (Thousands),,,,,,,,,,18/03/2020
+Switzerland,Kissing and shaking hands advised against,,2020-03-01,,,,,,,,,,,,,,,,,,21/03/90
+Argentina,Mandatory 14 day confinement when coming back from affected countries / suspected covid case (Decree 260/2020),,2020-03-13,,,,,,,,,,,,,,,,,,
+Argentina,Borders closed for foreigners / non-residents (Decree 274/2020),,2020-03-16,,,,,,,,,,,,,,,,,,
+Argentina,School closed,,2020-03-16,,,,,,,,,,,,,,,,,,
+Argentina,Sports suspended (football confirmed 2020-03-17),,2020-03-16,,,,,,,,,,,,,,,,,,
+Argentina,"Compulsory quarantine, lockdown (Decree 297/2020)",,2020-03-20,,,,,,,,,,,,,,,,,,
+Brazil,Land borders closed,,2020-03-19,,https://br.usembassy.gov/covid-19-information/,,,,,,,,,,,,,,,,
+Brazil,Borders closed ,,2020-03-30,,https://br.usembassy.gov/covid-19-information/,,,,,,,,,,,,,,,,
+Brazil,Mandatory 14 day confinement when coming back from affected countries,,2020-03-17,,https://br.usembassy.gov/covid-19-information/,,,,,,,,,,,,,,,,
+Brazil,25 out of 27 Brazilian states enter mandatory quarantine; federal government vocal against quarantine (quarantine effective?),,2020-03-25,,https://www.bloomberg.com/news/articles/2020-03-21/brazil-s-biggest-state-is-set-to-begin-quarantine-to-slow-virus https://www.lapoliticaonline.com/nota/125411-los-gobernadores-de-brasil-acuerdan-ignorar-a-bolsonaro-y-llaman-a-respetar-la-cuarentena/,,,,,,,,,,,,,,,,
+Brazil,Social distancing encouraged by health ministry,,2020-03-28,,,,,,,,,,,,,,,,,,
+Chile,Gatherings of > 500 people banned ,,2020-03-16,,,,,,,,,,,,,,,,,,
+Chile,Mandatory 14 day confinement when coming back from affected countries,,2020-03-16,,,,,,,,,,,,,,,,,,
+Chile,School closed,,2020-03-16,,,,,,,,,,,,,,,,,,
+Chile,National curfew,,2020-03-22,,,,,,,,,,,,,,,,,,
+Chile,"Lockdown in most affected neighbourhoods: Easter Island, Santiago (Las Condes, Lo Barnechea, Nunoa, Providencia, Santiago, Vitacura, Independencia); Auracania region (Padre Las Casas & Temuco); Lagos region (Osorno); Magellan region (Puerto Williams & Punta Arenas). ",,2020-03-27,,,,,,,,,,,,,,,,,,
+Colombia,"Health emergency, ban gatherings over 500 persons",,2020-03-13,,https://www.reuters.com/article/us-health-coronavirus-colombia/colombia-declares-health-emergency-to-tackle-coronavirus-idUSKBN20Z2QX,,,,,,,,,,,,,,,,
+Colombia,"Borders closed for foreigners, school and universities close",,2020-03-16,,https://www.voanoticias.com/a/colombia-cierra-escuelas-y-la-entrada-de-extranjeros-al-pais/5330653.html,,,,,,,,,,,,,,,,
+Colombia,Mandatory confinement for over 70,,2020-03-17,,https://www.eltiempo.com/politica/gobierno/coronavirus-en-colombia-presidente-duque-decreta-estado-de-emergencia-474158,,,,,,,,,,,,,,,,
+Dominican Republic,Borders closed ,,2020-03-19,,https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Rep%C3%BAblica_Dominicana#Primeras_medidas,,,,,,,,,,,,,,,,
+Dominican Republic,"Non essential shops closed, schools closed, public events suspended",,2020-03-16,,,,,,,,,,,,,,,,,,
+Dominican Republic,National curfew,,2020-03-20,,https://www.telemundo47.com/historias-destacadas/danilo-medina-ordena-el-toque-de-queda-en-republica-dominicana/2034516/,,,,,,,,,,,,,,,,
+Dominican Republic,Curfew extended from 17h to 6h ,,2020-03-27,,https://www.elcaribe.com.do/2020/03/26/presidente-medina-extiende-horario-del-toque-de-queda-en-todo-el-territorio-nacional/,,,,,,,,,,,,,,,,
+Ecuador,Schools closed,,2020-03-13,,https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Ecuador#Medidas_y_prevenciones,,,,,,,,,,,,,,,,
+Ecuador,Air and maritime borders closed,,2020-03-19,,,,,,,,,,,,,,,,,,
+Ecuador,"Curfew, state of exception, non-essential shops closed",,2020-03-17,,https://www.infobae.com/america/america-latina/2020/03/17/el-presidente-lenin-moreno-decreto-el-estado-de-excepcion-en-ecuador-por-el-coronavirus/,,,,,,,,,,,,,,,,12/03/20
+Ecuador,"Curfew extended from 14h to 5h, de facto lock-down",,2020-03-25,,https://www.elcomercio.com/actualidad/toque-queda-ecuador-coronavirus-covid19.html,,,,,,,,,,,,,,,,
+Mexico,School closed (holidays extended),,2020-03-23,,,,,,,,,,,,,,,,,,
+Mexico,"National campaign for social distancing (jornada nacional de sana distancia), promotes suspension of non-essential activities",,2020-03-23,,https://es.wikipedia.org/wiki/Jornada_Nacional_de_Sana_Distancia#Medidas,,,,,,,,,,,,,,,,
+Mexico,"Non-essential economic activities suspended, shops closed",,2020-03-31,,https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_M%C3%A9xico#Gubernamentales https://www.latimes.com/espanol/mexico/articulo/2020-03-30/mexico-extiende-el-cierre-tras-aumentar-casos-de-covid-19-video,,,,,,,,,,,,,,,,
+Panama,School closed,,2020-03-12,,https://www.tvn-2.com/nacionales/Suspenden-clases-colegios-publicos-privados_0_5530696917.html,,,,,,,,,,,,,,,,
+Panama,International flights forbidden,,2020-03-23,,https://www.telemetro.com/nacionales/2020/03/19/panama-suspende-llegada-y-salida-de-vuelos-internacionales-por-30-dias/2695472.html,,,,,,,,,,,,,,,,
+Panama,National curfew,,2020-03-19,,"Executive Decree 490, https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Panam%C3%A1#cite_note-es_20200316_suspensiondeclases-11",,,,,,,,,,,,,,,,
+Panama,Gender-based quarantine ,,2020-04-01,,https://www.laestrella.com.pa/nacional/200330/panama-suma-1-075-casos-endurece-cuarentena-frenar-covid-19,,,,,,,,,,,,,,,,
+Panama,24h curfew (lockdown),,2020-03-25,,https://www.telam.com.ar/notas/202003/444324-coronavirus-panama-toque-de-queda.html,,,,,,,,,,,,,,,,
+Peru,"Quarantine, internal and external travel heavily restricted",,2020-03-16,,https://es.wikipedia.org/wiki/Pandemia_de_enfermedad_por_coronavirus_de_2020_en_Per%C3%BA,,,,,,,,,,,,,,,,
+Peru,Curfew,,2020-03-18,,,,,,,,,,,,,,,,,,
+Peru,Gender-based quarantine ,,2020-04-03,,,,,,,,,,,,,,,,,,
+Peru,"Class suspended (private schools close, public schools don't start on march 16 as scheduled)",,2020-03-11,,https://rpp.pe/peru/actualidad/coronavirus-covid-19-el-inicio-del-ano-escolar-se-postergo-hasta-el-lunes-30-de-marzo-por-nuevo-coronavirus-noticia-1250817?ref=rpp,,,,,,,,,,,,,,,,
+Peru,"Universities close, ban on gatherings of more than 300 persons",,2020-03-13,,https://rpp.pe/politica/gobierno/coronavirus-covid-19-martin-vizcarra-anuncio-la-suspension-de-clases-universitarias-y-la-prohibicion-de-espectaculos-con-mas-de-300-personas-noticia-1251160,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,
+Country,Population 0-9,,Population 10-19,Population 30-39,Population 40-49,Population 50-59,Population 60-69,,Population 70-79,Population 80+,Total (Thousands),,,,,,,,,,18/03/20
 UK,8.044.056,,7.642.473,9.295.024,8.604.251,9.173.465,7.286.777,,5.830.635,3.450.616,59.327.297,,,,,,,,,,2020-03-16
-Austria,874.182,,876.208,1.243.416,1.178.265,1.407,1033.32,,790.437,488.195,7.891.023,,,,,,,,,,19/03/2020
-Denmark,606.029,,675.948,672.29,738.207,810.126,654.53,,586.138,272.973,5.016.241,,,,,,,,,,20/03/2091
-France,7.527.474,,7.883.477,8011.05,8.325.667,8.635.057,7.764.786,,5.727.704,4.027.268,57.902.483,,,,,,,,,,16/03/2020
-Germany,7.880.904,,7.930.616,10872.02,10.243.351,13.488.393,10.644.142,,7.471.414,5.875.744,74.406.584,,,,,,,,,,13/03/2020
-Norway,614.323,,643.031,738.724,724.93,712.508,586.156,,446.448,228.739,4.694.859,,,,,,,,,,09/03/2020
-Spain,4.234.487,,4.736.077,5.901.993,7.938.499,7.046.327,5.340.654,,4.015.306,2.923.841,42.137.184,,,,,,,,,,18/03/2020
-Sweden,1.193.951,,1.127.127,1.320.299,1.264.123,1.296.647,1.093.868,,994.244,532.081,8822.34,,,,,,,,,,23/03/2020
-Switzerland,884.945,,834.867,1.219.224,1.166.588,1.320.622,977.435,,751.993,459.215,7.614.889,,,,,,,,,,21/03/2020
-Italy,4.994.995,,5.733.448,6.998.434,9.022.004,9.567.192,7.484.862,,6.028.908,4.528.549,54.358.392,,,,,,,,,,21/03/2020
-,,,,,,,,,,,,,,,,,,,,,16/03/2020
-,,,,,,,,,,,,,,,,,,,,,23/03/2020
+Austria,874.182,,876.208,1.243.416,1.178.265,1.407,1033.32,,790.437,488.195,7.891.023,,,,,,,,,,19/03/20
+Denmark,606.029,,675.948,672.29,738.207,810.126,654.53,,586.138,272.973,5.016.241,,,,,,,,,,20/03/91
+France,7.527.474,,7.883.477,8011.05,8.325.667,8.635.057,7.764.786,,5.727.704,4.027.268,57.902.483,,,,,,,,,,16/03/20
+Germany,7.880.904,,7.930.616,10872.02,10.243.351,13.488.393,10.644.142,,7.471.414,5.875.744,74.406.584,,,,,,,,,,13/03/20
+Norway,614.323,,643.031,738.724,724.93,712.508,586.156,,446.448,228.739,4.694.859,,,,,,,,,,09/03/20
+Spain,4.234.487,,4.736.077,5.901.993,7.938.499,7.046.327,5.340.654,,4.015.306,2.923.841,42.137.184,,,,,,,,,,18/03/20
+Sweden,1.193.951,,1.127.127,1.320.299,1.264.123,1.296.647,1.093.868,,994.244,532.081,8822.34,,,,,,,,,,23/03/20
+Switzerland,884.945,,834.867,1.219.224,1.166.588,1.320.622,977.435,,751.993,459.215,7.614.889,,,,,,,,,,21/03/20
+Italy,4.994.995,,5.733.448,6.998.434,9.022.004,9.567.192,7.484.862,,6.028.908,4.528.549,54.358.392,,,,,,,,,,21/03/20
+,,,,,,,,,,,,,,,,,,,,,16/03/20
+,,,,,,,,,,,,,,,,,,,,,23/03/20
 ,,,,,,,,,,,,,,,,,,,,,
 NRW,17933,,,,,,,,,,,,,,,,,,,,
 Bayern,13077,,,,,,,,,,,,,,,,,,,,
