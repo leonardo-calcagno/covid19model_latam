@@ -27,3 +27,13 @@ names(d)[names(d) == "deaths"] <- "Deaths"
 names(d)[names(d) == "cases"] <- "Cases"
 names(d)[names(d) == "dateRep"] <- "DateRep"
 saveRDS(d, "data/COVID-19-up-to-date.rds")
+
+
+d_latam <- read.csv("data/COVID-19-up-to-date-latam.csv", stringsAsFactors = FALSE)
+d_latam$t <- lubridate::decimal_date(as.Date(d_latam$dateRep, format = "%d/%m/%Y"))
+d_latam <- d_latam[order(d_latam$'countriesAndTerritories', d_latam$t, decreasing = FALSE), ]
+names(d)[names(d) == "countriesAndTerritories"] <- "Countries.and.territories"
+names(d)[names(d) == "deaths"] <- "Deaths"
+names(d)[names(d) == "cases"] <- "Cases"
+names(d)[names(d) == "dateRep"] <- "DateRep"
+saveRDS(d_latam, "data/COVID-19-up-to-date-latam.rds")
