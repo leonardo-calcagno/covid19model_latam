@@ -25,7 +25,7 @@ make_forecast_plot <- function(){
   data_interventions <- read.csv("data/interventions.csv", 
                                  stringsAsFactors = FALSE)
   
-  for(i in 1:11){
+  for(i in 1:20){
     N <- length(dates[[i]])
     N2 <- N + 7
     country <- countries[[i]]
@@ -126,12 +126,12 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
     ylab("Daily number of deaths\n") + 
     scale_x_date(date_breaks = "weeks", labels = date_format("%e %b")) + 
     scale_y_continuous(trans='log10', labels=comma) + 
-    coord_cartesian(ylim = c(1, 100000), expand = FALSE) + 
+    coord_cartesian(ylim = c(1, 200000), expand = FALSE) + 
     theme_pubr() + 
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
     guides(fill=guide_legend(ncol=1, reverse = TRUE)) + 
     annotate(geom="text", x=data_country$time[length(data_country$time)]+8, 
-             y=10000, label="Forecast",
+             y=20000, label="Forecast",
              color="black")
   print(p)
   

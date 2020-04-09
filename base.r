@@ -15,7 +15,16 @@ countries <- c(
   "Belgium",
   "Austria", 
   "Sweden",
-  "Switzerland"
+  "Switzerland",
+  "Argentina",
+  "Brazil",
+  "Chile",
+  "Colombia",
+  "Dominican_Republic",
+  "Ecuador",
+  "Mexico",
+  "Panama", 
+  "Peru"
 )
 
 args = commandArgs(trailingOnly=TRUE)
@@ -27,16 +36,17 @@ StanModel = args[1]
 print(sprintf("Running %s",StanModel))
 
 ## Reading all data
-d=readRDS('data/COVID-19-up-to-date.rds')
+d=readRDS('data/COVID-19-up-to-date-latam.rds')
 
 ## get IFR
 ifr.by.country = read.csv("data/weighted_fatality.csv")
 ifr.by.country$country = as.character(ifr.by.country[,2])
 ifr.by.country$country[ifr.by.country$country == "United Kingdom"] = "United_Kingdom"
+ifr.by.country$country[ifr.by.country$country == "Dominican Republic"] = "Dominican_Republic"
 
 serial.interval = read.csv("data/serial_interval.csv")
 covariates = read.csv('data/interventions.csv', stringsAsFactors = FALSE)
-covariates <- covariates[1:11, c(1,2,3,4,5,6, 7, 8)]
+covariates <- covariates[1:20, c(1,2,3,4,5,6, 7, 8)]
 
 ## making all covariates that happen after lockdown to have same date as lockdown
 covariates$schools_universities[covariates$schools_universities > covariates$lockdown] <- covariates$lockdown[covariates$schools_universities > covariates$lockdown]
@@ -51,11 +61,11 @@ forecast = 0
 
 DEBUG = FALSE
 if(DEBUG == FALSE) {
-  N2 = 75 # Increase this for a further forecast
+  N2 = 100 # Increase this for a further forecast
 }  else  {
   ### For faster runs:
-  # countries = c("Austria","Belgium") #,Spain")
-  N2 = 75
+   countries = c("Austria","Belgium","Brazil","Italy") #,Spain")
+  N2 = 100
 }
 # countries = c("Italy","United_Kingdom","Spain","Norway","Austria","Switzerland")
 
@@ -73,8 +83,8 @@ for(Country in countries) {
   
   covariates1 <- covariates[covariates$Country == Country, 2:8]
   
-  d1=d[d$Countries.and.territories==Country,]
-  d1$date = as.Date(d1$DateRep,format='%d/%m/%Y')
+  d1=d_latam[d_latam$Countries.and.territories==Country,]
+  d1$date = as.Date(d1$DateRep,format='%d/%m/%y')
   d1$t = decimal_date(d1$date) 
   d1=d1[order(d1$t),]
   index = which(d1$Cases>0)[1]
@@ -88,7 +98,7 @@ for(Country in countries) {
   
   for (ii in 1:ncol(covariates1)) {
     covariate = names(covariates1)[ii]
-    d1[covariate] <- (as.Date(d1$DateRep, format='%d/%m/%Y') >= as.Date(covariates1[1,covariate]))*1  # should this be > or >=?
+    d1[covariate] <- (as.Date(d1$DateRep, format='%d/%m/%y') >= as.Date(covariates1[1,covariate]))*1  # should this be > or >=?
   }
   
   dates[[Country]] = d1$date
