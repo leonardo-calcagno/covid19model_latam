@@ -5,17 +5,6 @@ library(gdata)
 library(EnvStats)
 
 countries <- c(
-  "Denmark",
-  "Italy",
-  "Germany",
-  "Spain",
-  "United_Kingdom",
-  "France",
-  "Norway",
-  "Belgium",
-  "Austria", 
-  "Sweden",
-  "Switzerland",
   "Argentina",
   "Brazil",
   "Chile",
@@ -45,34 +34,35 @@ ifr.by.country$country[ifr.by.country$country == "United Kingdom"] = "United_Kin
 ifr.by.country$country[ifr.by.country$country == "Dominican Republic"] = "Dominican_Republic"
 
 serial.interval = read.csv("data/serial_interval.csv")
-covariates = read.csv('data/interventions.csv', stringsAsFactors = FALSE)
-covariates <- covariates[1:20, c(1,2,3,4,5,6, 7, 8)]
+covariates = read.csv('data/interventions_latam.csv', stringsAsFactors = FALSE)
+covariates <- covariates[1:20, c(1,2,3,4,5,6, 7, 8, 9, 10)]
 
-## making all covariates that happen after lockdown to have same date as lockdown
+## making all covariates (except curfew) that happen after lockdown to have same date as lockdown
 covariates$schools_universities[covariates$schools_universities > covariates$lockdown] <- covariates$lockdown[covariates$schools_universities > covariates$lockdown]
 covariates$travel_restrictions[covariates$travel_restrictions > covariates$lockdown] <- covariates$lockdown[covariates$travel_restrictions > covariates$lockdown] 
 covariates$public_events[covariates$public_events > covariates$lockdown] <- covariates$lockdown[covariates$public_events > covariates$lockdown]
 covariates$sport[covariates$sport > covariates$lockdown] <- covariates$lockdown[covariates$sport > covariates$lockdown]
 covariates$social_distancing_encouraged[covariates$social_distancing_encouraged > covariates$lockdown] <- covariates$lockdown[covariates$social_distancing_encouraged > covariates$lockdown]
 covariates$self_isolating_if_ill[covariates$self_isolating_if_ill > covariates$lockdown] <- covariates$lockdown[covariates$self_isolating_if_ill > covariates$lockdown]
+covariates$partial_quarantine[covariates$partial_quarantine > covariates$lockdown] <- covariates$lockdown[covariates$partial_quarantine > covariates$lockdown]
 
 p <- ncol(covariates) - 1
 forecast = 0
 
 DEBUG = FALSE
 if(DEBUG == FALSE) {
-  N2 = 100 # Increase this for a further forecast
+  N2 = 75 # Increase this for a further forecast
 }  else  {
   ### For faster runs:
-   countries = c("Austria","Belgium","Brazil","Italy") #,Spain")
-  N2 = 100
+   countries = c("Argentina","Chile","Brazil") #,Spain")
+  N2 = 75
 }
 # countries = c("Italy","United_Kingdom","Spain","Norway","Austria","Switzerland")
 
 dates = list()
 reported_cases = list()
 stan_data = list(M=length(countries),N=NULL,p=p,x1=poly(1:N2,2)[,1],x2=poly(1:N2,2)[,2],
-                 y=NULL,covariate1=NULL,covariate2=NULL,covariate3=NULL,covariate4=NULL,covariate5=NULL,covariate6=NULL,covariate7=NULL,deaths=NULL,f=NULL,
+                 y=NULL,covariate1=NULL,covariate2=NULL,covariate3=NULL,covariate4=NULL,covariate5=NULL,covariate6=NULL,covariate7=NULL,covariate8=NULL,covariate9=NULL,deaths=NULL,f=NULL,
                  N0=6,cases=NULL,LENGTHSCALE=7,SI=serial.interval$fit[1:N2],
                  EpidemicStart = NULL) # N0 = 6 to make it consistent with Rayleigh
 deaths_by_country = list()
@@ -81,7 +71,7 @@ deaths_by_country = list()
 for(Country in countries) {
   IFR=ifr.by.country$weighted_fatality[ifr.by.country$country == Country]
   
-  covariates1 <- covariates[covariates$Country == Country, 2:8]
+  covariates1 <- covariates[covariates$Country == Country, 2:10]
   
   d1=d_latam[d_latam$Countries.and.territories==Country,]
   d1$date = as.Date(d1$DateRep,format='%d/%m/%y')
@@ -164,6 +154,8 @@ for(Country in countries) {
   stan_data$covariate5 = cbind(stan_data$covariate5,covariates2[,5])
   stan_data$covariate6 = cbind(stan_data$covariate6,covariates2[,6])
   stan_data$covariate7 = cbind(stan_data$covariate7,covariates2[,7]) 
+  stan_data$covariate8 = cbind(stan_data$covariate8,covariates2[,8]) 
+  stan_data$covariate9 = cbind(stan_data$covariate9,covariates2[,9]) 
   stan_data$f = cbind(stan_data$f,f)
   stan_data$deaths = cbind(stan_data$deaths,deaths)
   stan_data$cases = cbind(stan_data$cases,cases)
@@ -176,31 +168,34 @@ for(Country in countries) {
 }
 
 stan_data$covariate2 = 0 * stan_data$covariate2 # remove travel bans
+stan_data$covariate6 = 0 * stan_data$covariate6 # remove social distancing encouraged
 stan_data$covariate4 = 0 * stan_data$covariate5 # remove sport
+stan_data$covariate7 = 0 * stan_data$covariate7 # remove self-isolating if ill
+stan_data$covariate2 = stan_data$covariate8 # curfew
+stan_data$covariate6 = stan_data$covariate9 # partial lockdown
+stan_data$covariate8 = 0 * stan_data$covariate8 #remove old covariate numbers
+stan_data$covariate9 = 0 * stan_data$covariate9  #remove old covariate numbers
 
 #stan_data$covariate1 = stan_data$covariate1 # school closure
-stan_data$covariate2 = stan_data$covariate7 # self-isolating if ill
 #stan_data$covariate3 = stan_data$covariate3 # public events
 # create the `any intervention` covariate
 stan_data$covariate4 = 1*as.data.frame((stan_data$covariate1+
+                                          stan_data$covariate2+
                                           stan_data$covariate3+
                                           stan_data$covariate5+
-                                          stan_data$covariate6+
-                                          stan_data$covariate7) >= 1)
+                                          stan_data$covariate6) >= 1)
 stan_data$covariate5 = stan_data$covariate5 # lockdown
-stan_data$covariate6 = stan_data$covariate6 # social distancing encouraged
-stan_data$covariate7 = 0 # models should only take 6 covariates
 
 if(DEBUG) {
   for(i in 1:length(countries)) {
     write.csv(
       data.frame(date=dates[[i]],
                  `school closure`=stan_data$covariate1[1:stan_data$N[i],i],
-                 `self isolating if ill`=stan_data$covariate2[1:stan_data$N[i],i],
+                 `curfew`=stan_data$covariate2[1:stan_data$N[i],i],
                  `public events`=stan_data$covariate3[1:stan_data$N[i],i],
                  `government makes any intervention`=stan_data$covariate4[1:stan_data$N[i],i],
                  `lockdown`=stan_data$covariate5[1:stan_data$N[i],i],
-                 `social distancing encouraged`=stan_data$covariate6[1:stan_data$N[i],i]),
+                 `partial quarantine`=stan_data$covariate6[1:stan_data$N[i],i]),
       file=sprintf("results/%s-check-dates.csv",countries[i]),row.names=F)
   }
 }
@@ -213,8 +208,8 @@ m = stan_model(paste0('stan-models/',StanModel,'.stan'))
 if(DEBUG) {
   fit = sampling(m,data=stan_data,iter=40,warmup=20,chains=2)
 } else { 
-  fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
-  #fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+  # fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+  fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
 }  
 
 out = rstan::extract(fit)
@@ -234,13 +229,14 @@ save(fit,prediction,dates,reported_cases,deaths_by_country,countries,estimated.d
 # to visualize results
 library(bayesplot)
 filename <- paste0('base-',JOBID)
-plot_labels <- c("School Closure",
-                 "Self Isolation",
-                 "Public Events",
-                 "First Intervention",
-                 "Lockdown", 'Social distancing')
+plot_labels2 <- c("Lockdown",
+                  "School closure",
+                 "Public events banned",
+                 "Curfew", 
+                 "Partial quarantine",
+                 "First Intervention")
 alpha = (as.matrix(out$alpha))
-colnames(alpha) = plot_labels
+colnames(alpha) = plot_labels2
 g = (mcmc_intervals(alpha, prob = .9))
 ggsave(sprintf("results/%s-covars-alpha-log.pdf",filename),g,width=4,height=6)
 g = (mcmc_intervals(alpha, prob = .9,transformations = function(x) exp(-x)))
@@ -254,5 +250,5 @@ Rt = (as.matrix(out$Rt[,dimensions[2],]))
 colnames(Rt) = countries
 g = (mcmc_intervals(Rt,prob = .9))
 ggsave(sprintf("results/%s-covars-final-rt.pdf",filename),g,width=4,height=6)
-system(paste0("Rscript plot-3-panel.r ", filename,'.Rdata'))
-system(paste0("Rscript plot-forecast.r ",filename,'.Rdata')) ## to run this code you will need to adjust manual values of forecast required
+system(paste0("Rscript plot-3-panel-latam-covariates.r ", filename,'.Rdata'))
+system(paste0("Rscript plot-forecast-latam-covariates.r ",filename,'.Rdata')) ## to run this code you will need to adjust manual values of forecast required
