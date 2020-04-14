@@ -10,10 +10,11 @@ countries <- c(
   "Chile",
   "Colombia",
   "Dominican_Republic",
-  "Ecuador",
+ # "Ecuador",
   "Mexico",
   "Panama", 
-  "Peru"
+  "Peru", 
+  "Puerto_Rico"
 )
 
 args = commandArgs(trailingOnly=TRUE)
@@ -32,10 +33,11 @@ ifr.by.country = read.csv("data/weighted_fatality.csv")
 ifr.by.country$country = as.character(ifr.by.country[,2])
 ifr.by.country$country[ifr.by.country$country == "United Kingdom"] = "United_Kingdom"
 ifr.by.country$country[ifr.by.country$country == "Dominican Republic"] = "Dominican_Republic"
+ifr.by.country$country[ifr.by.country$country == "Puerto Rico"] = "Puerto_Rico"
 
 serial.interval = read.csv("data/serial_interval.csv")
 covariates = read.csv('data/interventions.csv', stringsAsFactors = FALSE)
-covariates <- covariates[1:20, c(1,2,3,4,5,6, 7, 8)]
+covariates <- covariates[1:21, c(1,2,3,4,5,6, 7, 8)]
 
 ## making all covariates that happen after lockdown to have same date as lockdown
 covariates$schools_universities[covariates$schools_universities > covariates$lockdown] <- covariates$lockdown[covariates$schools_universities > covariates$lockdown]
@@ -48,12 +50,12 @@ covariates$self_isolating_if_ill[covariates$self_isolating_if_ill > covariates$l
 p <- ncol(covariates) - 1
 forecast = 0
 
-DEBUG = TRUE
+DEBUG = FALSE
 if(DEBUG == FALSE) {
   N2 = 75 # Increase this for a further forecast
 }  else  {
   ### For faster runs:
-   countries = c("Argentina","Chile","Brazil") #,Spain")
+   countries = c("Argentina","Chile","Brazil","Puerto_Rico") #,Spain")
   N2 = 75
 }
 # countries = c("Italy","United_Kingdom","Spain","Norway","Austria","Switzerland")
@@ -202,8 +204,8 @@ m = stan_model(paste0('stan-models/',StanModel,'.stan'))
 if(DEBUG) {
   fit = sampling(m,data=stan_data,iter=40,warmup=20,chains=2)
 } else { 
- fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
- # fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+ #fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+ fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
 }  
 
 out = rstan::extract(fit)

@@ -10,10 +10,11 @@ countries <- c(
   "Chile",
   "Colombia",
   "Dominican_Republic",
-  "Ecuador",
+  #"Ecuador",
   "Mexico",
   "Panama", 
-  "Peru"
+  "Peru", 
+  "Puerto_Rico"
 )
 
 args = commandArgs(trailingOnly=TRUE)
@@ -32,10 +33,11 @@ ifr.by.country = read.csv("data/weighted_fatality.csv")
 ifr.by.country$country = as.character(ifr.by.country[,2])
 ifr.by.country$country[ifr.by.country$country == "United Kingdom"] = "United_Kingdom"
 ifr.by.country$country[ifr.by.country$country == "Dominican Republic"] = "Dominican_Republic"
+ifr.by.country$country[ifr.by.country$country == "Puerto Rico"] = "Puerto_Rico"
 
 serial.interval = read.csv("data/serial_interval.csv")
 covariates = read.csv('data/interventions_latam.csv', stringsAsFactors = FALSE)
-covariates <- covariates[1:20, c(1,2,3,4,5,6, 7, 8, 9, 10)]
+covariates <- covariates[1:21, c(1,2,3,4,5,6, 7, 8, 9, 10)]
 
 ## making all covariates (except curfew) that happen after lockdown to have same date as lockdown
 covariates$schools_universities[covariates$schools_universities > covariates$lockdown] <- covariates$lockdown[covariates$schools_universities > covariates$lockdown]

@@ -24,9 +24,9 @@ make_three_pannel_plot <- function(){
   print(sprintf("loading: %s",paste0("results/",filename2)))
   data_interventions <- read.csv("data/interventions.csv", 
                                  stringsAsFactors = FALSE)
-  covariates <- data_interventions[1:20, c(1,2,3,4,5,6, 7, 8)]
+  covariates <- data_interventions[1:21, c(1,2,3,4,5,6, 7, 8)]
   
-  for(i in 1:20){
+  for(i in 1:21){
     print(i)
     N <- length(dates[[i]])
     country <- countries[[i]]
