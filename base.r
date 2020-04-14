@@ -5,23 +5,23 @@ library(gdata)
 library(EnvStats)
 
 countries <- c(
-  "Denmark",
-  "Italy",
-  "Germany",
-  "Spain",
-  "United_Kingdom",
-  "France",
-  "Norway",
-  "Belgium",
   "Austria", 
+  "Belgium",
+  "Denmark",
+  "France",
+  "Germany",
+  "Italy",
+  "Norway",
+  "Spain",
   "Sweden",
   "Switzerland",
+  "United_Kingdom", 
   "Argentina",
   "Brazil",
   "Chile",
   "Colombia",
   "Dominican_Republic",
-  "Ecuador",
+ # "Ecuador",
   "Mexico",
   "Panama", 
   "Peru", 
@@ -67,7 +67,7 @@ if(DEBUG == FALSE) {
   N2 = 100 # Increase this for a further forecast
 }  else  {
   ### For faster runs:
-   countries = c("Austria","Belgium","Brazil","Italy","Puerto_Rico") #,Spain")
+   countries = c("Austria","Belgium","Brazil","Italy","Argentina") #,Spain")
   N2 = 100
 }
 # countries = c("Italy","United_Kingdom","Spain","Norway","Austria","Switzerland")
@@ -216,8 +216,8 @@ m = stan_model(paste0('stan-models/',StanModel,'.stan'))
 if(DEBUG) {
   fit = sampling(m,data=stan_data,iter=40,warmup=20,chains=2)
 } else { 
-  fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
-  #fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+  #fit = sampling(m,data=stan_data,iter=4000,warmup=2000,chains=8,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
+  fit = sampling(m,data=stan_data,iter=200,warmup=100,chains=4,thin=4,control = list(adapt_delta = 0.90, max_treedepth = 10))
 }  
 
 out = rstan::extract(fit)
@@ -258,4 +258,6 @@ colnames(Rt) = countries
 g = (mcmc_intervals(Rt,prob = .9))
 ggsave(sprintf("results/%s-covars-final-rt.pdf",filename),g,width=4,height=6)
 system(paste0("Rscript plot-3-panel.r ", filename,'.Rdata'))
-system(paste0("Rscript plot-forecast.r ",filename,'.Rdata')) ## to run this code you will need to adjust manual values of forecast required
+system(paste0("Rscript plot-forecast.r ",filename,'.Rdata')) 
+system(paste0("Rscript plot-forecast-cf.r ",filename,'.Rdata')) 
+## to run this code you will need to adjust manual values of forecast required

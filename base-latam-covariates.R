@@ -253,4 +253,5 @@ colnames(Rt) = countries
 g = (mcmc_intervals(Rt,prob = .9))
 ggsave(sprintf("results/%s-covars-final-rt.pdf",filename),g,width=4,height=6)
 system(paste0("Rscript plot-3-panel-latam-covariates.r ", filename,'.Rdata'))
-system(paste0("Rscript plot-forecast-latam-covariates.r ",filename,'.Rdata')) ## to run this code you will need to adjust manual values of forecast required
+system(paste0("Rscript plot-forecast-latam-covariates.r ",filename,'.Rdata')) 
+system(paste0("Rscript plot-forecast-latam-covariates-cf.r ",filename,'.Rdata'))## to run this code you will need to adjust manual values of forecast required
