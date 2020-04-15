@@ -130,7 +130,7 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
     theme_pubr() + 
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
     guides(fill=guide_legend(ncol=1, reverse = TRUE)) + 
-    annotate(geom="text", x=data_country$time[length(data_country$time)]+8, 
+    annotate(geom="text", x=data_country$time[length(data_country$time)]+4, 
              y=10000, label="Forecast",
              color="black")
   print(p)
