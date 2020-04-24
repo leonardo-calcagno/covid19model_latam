@@ -141,8 +141,8 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
     #scale_fill_manual(name = "", 
     #                 labels = c("Confirmed deaths", "Predicted deaths"),
     #                 values = c("coral4", "deepskyblue4")) + 
-    xlab("Date") +
-    ylab("Daily number of deaths\n") + 
+    xlab("Fecha") +
+    ylab("Muertes por día\n") + 
     scale_x_date(date_breaks = "weeks", labels = date_format("%e %b")) + 
     scale_y_continuous(trans='log10', labels=comma) + 
     coord_cartesian(ylim = c(1, 200000), expand = FALSE) + 
@@ -150,7 +150,7 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
     guides(fill=guide_legend(ncol=1, reverse = TRUE)) + 
     annotate(geom="text", x=data_country$time[length(data_country$time)]+4, 
-             y=10000, label="Forecast",
+             y=10000, label="Proyección",
              color="black")
   print(p)
   
