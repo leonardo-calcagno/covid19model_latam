@@ -144,14 +144,19 @@ make_single_plot <- function(data_country, data_country_forecast, filename, coun
     xlab("Fecha") +
     ylab("Muertes por día\n") + 
     scale_x_date(date_breaks = "weeks", labels = date_format("%e %b")) + 
-    scale_y_continuous(trans='log10', labels=comma) + 
+    scale_y_continuous(trans=log10_trans(), 
+                       breaks = trans_breaks("log10", function(x) 10^x),
+                       labels = scales::number_format(accuracy = 1)) + 
     coord_cartesian(ylim = c(1, 200000), expand = FALSE) + 
     theme_pubr() + 
-    theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+    theme(axis.text.x = element_text(angle = 45, hjust = 1,size=25), 
+          axis.title.x = element_text(size=25), 
+          axis.text.y = element_text(size=25), 
+          axis.title.y = element_text(size=25)) + 
     guides(fill=guide_legend(ncol=1, reverse = TRUE)) + 
-    annotate(geom="text", x=data_country$time[length(data_country$time)]+4, 
+    annotate(geom="text", x=data_country$time[length(data_country$time)]+2.6, 
              y=10000, label="Proyección",
-             color="black")
+             color="black",size=5)
   print(p)
   
   ggsave(file= paste0("/Users/Leonardo/Documents/covid19model-import/covid19model/figures/", country, "_forecast_", filename, ".pdf"), 
